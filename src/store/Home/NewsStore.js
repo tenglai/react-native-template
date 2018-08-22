@@ -21,7 +21,7 @@ export class NewsStore extends BasePageStore { // 继承于 BasePageStore, this 
     HttpUtil.get(WANGYINEWS.url, WANGYINEWS.params, {show: this.data.length !== 0})
       .then(res => {
         this.data.length === 0 && this.setLoading(false);
-        this.setData(res)
+        this.setData(res);
       })
       .catch(e => {
         this.data.length === 0 ? this.setError(true, e.msg) : Toast.fail('请求失败')
@@ -33,8 +33,11 @@ export class NewsStore extends BasePageStore { // 继承于 BasePageStore, this 
     this.data.length === 0 && this.setLoading(true);
     HttpUtil.get(WANGYINEWS.url, WANGYINEWS.params, {show: this.data.length !== 0})
       .then(res => {
-        this.data.length === 0 && this.setLoading(false);
+        // this.data.length === 0 && this.setLoading(false);
+        res = this.data.concat(res);
         this.setData(res)
+        // 将数据返回到页面
+        return res;
       })
       .catch(e => {
         this.data.length === 0 ? this.setError(true, e.msg) : Toast.fail('请求失败')

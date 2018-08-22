@@ -25,8 +25,6 @@ import { images } from '../../res';
 // 检测版本升级
 // import { checkNativeUpdate } from '../../utils/UpdateUtils';
 
-const titles = ['首页', '购物车', '我的'];
-
 @inject('userStore', 'shopCar')
 @observer
 export default class MainPage extends Component {
@@ -63,7 +61,6 @@ export default class MainPage extends Component {
         >
           <TabView.Sheet
             title='首页'
-            activeTitleStyle={{color: 'red'}}
             icon={images.ic_home}
           >
             <HomePage />
@@ -88,10 +85,12 @@ export default class MainPage extends Component {
     );
   }
 
+  // 底部导航切换事件
   onTabChange = (index) => {
     this.setState({activeIndex: index})
   };
 
+  // 物理返回按钮监听事件
   onBackHander = () => {
     if (RouteHelper.routeStack.length === 1 && Date.now() - this.lastClickTime >= 2000) {
       ToastAndroid.show('再按一次退出', ToastAndroid.LONG);
