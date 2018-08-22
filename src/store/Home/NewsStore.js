@@ -8,7 +8,7 @@ import { HttpUtil } from '../../utils/HttpUtil';
 // 常量
 import { WANGYINEWS } from '../../base/Constant';
 
-export class NewsStore extends BasePageStore {
+export class NewsStore extends BasePageStore { // 继承于 BasePageStore, this 拥有其上所有属性
   // 构造器
   constructor() {
     super([]);

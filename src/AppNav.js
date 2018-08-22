@@ -44,6 +44,7 @@ export const AppNavigator = () => {
           key="launchPage"
           component={LaunchPage}
           hideNavBar={true}
+          initial={true}
         />
         {/* 登录页 */}
         <Scene
@@ -56,7 +57,6 @@ export const AppNavigator = () => {
           key="mainPage"
           component={MainPage}
           hideNavBar={true}
-          initial={true}
         />
         {/* 首页--详情页 */}
         <Scene

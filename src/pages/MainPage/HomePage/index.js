@@ -10,7 +10,7 @@ import {
 // 导入Action的包,处理页面跳转
 import { Actions } from 'react-native-router-flux';
 import ListRow from 'teaset/components/ListRow/ListRow';
-import { NewsStore } from '../../../store/Home/NewsStore';
+import { NewsStore } from '../../../store';
 // toJS 将可观察数据 转换成 普通数据
 import { toJS } from 'mobx';
 import { BaseContainer } from '../../../components';

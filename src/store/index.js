@@ -1,5 +1,7 @@
 /**
  * store 主文件
+ * 便于页面单独引用相关页面 store
+ * 例如：import { NewsStore } from '../../../store';
  */
 // 基础应用数据(用户数据 + 购物车数据)
 export { BaseAppStore } from './BaseAppStore';
@@ -13,32 +15,3 @@ export { ShopCarStore } from './ShopCar/ShopCarStore';
 export { Theme } from './Theme';
 // // 用户信息
 // export { UserStore } from './UserStore';
-
-
-// /**
-//  * 汇总 store 并将 store 通过 Provider 绑定到 App(根组件)
-//  * 20180820
-//  */
-// // 基础应用数据
-// import { BaseAppStore } from './BaseAppStore';
-// // 基础页面数据(公用状态类)
-// import { BasePageStore } from './BasePageStore';
-// // 新闻列表 数据
-// import { NewsStore } from './NewsStore';
-// // 购物车数据
-// import { ShopCarStore } from './ShopCarStore';
-// // 主题
-// import { Theme } from './Theme';
-// // 用户信息
-// import { UserStore } from './UserStore';
-
-// const store = {
-//   BaseAppStore,
-//   BasePageStore,
-//   NewsStore,
-//   ShopCarStore,
-//   Theme,
-//   UserStore
-// };
-
-// export default store;
