@@ -8,6 +8,7 @@ import {
   View,
 } from 'react-native';
 import { BaseContainer } from '../../../components';
+import Icon from 'react-native-vector-icons/Ionicons'; //引入图标
 
 export default class ShopCarPage extends Component {
   render() {
@@ -16,6 +17,7 @@ export default class ShopCarPage extends Component {
         hideLeft
         title={'购物车'}
       >
+        <Icon name='md-home' size={30} color='blue' />
       </BaseContainer>
     )
   }

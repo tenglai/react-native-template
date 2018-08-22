@@ -18,6 +18,7 @@
     "react-native-app-upgrade": "^0.0.1",
     "react-native-code-push": "^5.4.1",
     "react-native-device-info": "^0.22.3",
+    "react-native-router-flux": "^4.0.1",
     "react-native-shadow-view": "^0.0.1",
     "react-native-splash-screen": "^3.1.1",
     "react-native-svg": "^6.5.2",
