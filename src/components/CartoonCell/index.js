@@ -9,13 +9,13 @@ import {
   View,
   TouchableOpacity,
 } from 'react-native';
-// 引入路由
-import { RouteHelper } from 'react-navigation-easy-helper';
+// 导入Action的包,处理页面跳转
+import { Actions } from 'react-native-router-flux';
 
 export default class CartoonCell extends Component {
   // 跳转目录页
   goCatalogPage = (id,title) => {
-    RouteHelper.navigate('MineCatalogPage',{id: id,title: title});
+    Actions.mineCatalogPage({id: id,title: title});
   }
 
   render() {

@@ -14,7 +14,9 @@ import { ListRow, Input, Button, Toast } from 'teaset';
  * @observer 修饰react组件类
  */
 import { inject, observer } from 'mobx-react';
-import { RouteHelper } from 'react-navigation-easy-helper';
+// import { RouteHelper } from 'react-navigation-easy-helper';
+// 导入Action的包,处理页面跳转
+import { Actions } from 'react-native-router-flux';
 import { BaseContainer } from '../../components';
 
 /**
@@ -67,7 +69,7 @@ export default class LoginPage extends Component {
           // }
 
           // 跳转主页面
-          RouteHelper.navigate('MainPage')
+          Actions.mainPage();
         }
       }
     });

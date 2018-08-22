@@ -9,7 +9,6 @@ import {
   ScrollView,
 } from 'react-native';
 import { BaseContainer, CartoonCell } from '../../../components';
-// import { RouteHelper } from 'react-navigation-easy-helper';
 import { CartoonStore } from '../../../store/Mine/CartoonStore.js';
 // toJS 将可观察数据 转换成 普通数据
 import { toJS } from 'mobx';
@@ -26,8 +25,8 @@ export default class MineListPage extends Component {
 
   // 生命周期--组件加载完毕
   componentDidMount(){
-    let id = this.props.navigation.state.params.id;
-    let title = this.props.navigation.state.params.title;
+    let id = this.props.id;
+    let title = this.props.title;
     this.setState({
       title: title
     });

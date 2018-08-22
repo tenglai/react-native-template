@@ -12,7 +12,8 @@ import {
 import { Carousel, Button } from 'teaset';
 import { observer } from 'mobx-react';
 import { action, observable } from 'mobx';
-import { RouteHelper } from 'react-navigation-easy-helper';
+// 导入Action的包,处理页面跳转
+import { Actions } from 'react-native-router-flux';
 // 主题
 import { Theme } from '../../store';
 // 图片资源
@@ -77,7 +78,7 @@ export default class GuidePage extends Component {
             title={'立即体验'}
             titleStyle={{color: 'white'}}
             onPress={() => {
-              RouteHelper.navigate('MainPage')
+              Actions.mainPage();
             }}
           /> 
           :

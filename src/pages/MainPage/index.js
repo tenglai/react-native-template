@@ -3,7 +3,7 @@
  */
 import React, {Component} from 'react';
 import {
-  BackHandler,
+  BackHandler, // 物理返回键
   View,
   ToastAndroid
 } from 'react-native';

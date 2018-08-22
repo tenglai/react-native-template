@@ -25,7 +25,7 @@ export default class MineDetailPage extends Component {
   // 生命周期--组件加载完毕
   componentDidMount(){
     // 获取路由传参
-    let detail = this.props.navigation.state.params.detail;
+    let detail = this.props.detail;
     this.setState({
       title: detail.titleText
     });

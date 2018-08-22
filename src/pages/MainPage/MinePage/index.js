@@ -7,7 +7,6 @@ import {
   Text,
   ScrollView
 } from 'react-native';
-import { RouteHelper } from 'react-navigation-easy-helper';
 import { BaseContainer, CartoonNavTopCell, CartoonNavCell } from '../../../components';
 import { observer } from 'mobx-react';
 // 导航数据

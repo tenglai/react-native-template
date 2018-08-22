@@ -7,7 +7,8 @@ import {
   Text,
   ScrollView
 } from 'react-native';
-import { RouteHelper } from 'react-navigation-easy-helper';
+// 导入Action的包,处理页面跳转
+import { Actions } from 'react-native-router-flux';
 import ListRow from 'teaset/components/ListRow/ListRow';
 import { NewsStore } from '../../../store/Home/NewsStore';
 // toJS 将可观察数据 转换成 普通数据
@@ -27,7 +28,7 @@ export default class HomePage extends Component {
         hideLeft
         title={'首页'}
         // rightTitle={'详情'}
-        // rightPress={() => RouteHelper.navigate('HomeDetailPage')}
+        // rightPress={() => Actions.homeDetailPage()}
       >
         <ScrollView style={styles.container} stickyHeaderIndices={[0]}>
           <ListRow
@@ -45,7 +46,7 @@ export default class HomePage extends Component {
                 title={item.title}
                 onPress={() => {
                   // 跳转详情页
-                  RouteHelper.navigate('HomeDetailPage',{detail: item})
+                  Actions.homeDetailPage({detail: item})
                 }}
               />
             )

@@ -9,7 +9,8 @@ import {
 } from 'react-native'
 import { ListRow } from 'teaset';
 import SplashScreen from 'react-native-splash-screen';
-import { RouteHelper } from 'react-navigation-easy-helper';
+// 导入Action的包,处理页面跳转
+import { Actions } from 'react-native-router-flux';
 // 主体布局
 import { BaseContainer } from '../../components';
 // 常数(常量)
@@ -33,10 +34,10 @@ export default class LaunchPage extends Component {
   launchApp = async () => {
     let notFirstOpen = await AsyncStorage.getItem('notFirstOpen');
     if (notFirstOpen) {
-      RouteHelper.navigate('MainPage')
+      Actions.mainPage();
     } else {
       AsyncStorage.setItem('notFirstOpen', 'true');
-      RouteHelper.replace('GuidePage')
+      Actions.guidePage();
     }
   };
 
@@ -45,7 +46,7 @@ export default class LaunchPage extends Component {
       <BaseContainer store={this.store} hideLeft title={Config.TEST_TITLE}>
         <ScrollView style={{flex: 1}}>
           <ListRow title={'Teaset Example'} onPress={() => {
-            RouteHelper.navigate('TeasetApp')
+            Actions.teasetApp()
           }}/>
 
           <ListRow title={'打开正常App'} onPress={this.launchApp}/>
