@@ -7,11 +7,13 @@ import {
   Text,
   View,
   Image,
+  ImageBackground,
   ScrollView,
 } from 'react-native';
 import { BaseContainer } from '../../../components';
 import { CartoonStore } from '../../../store/Mine/CartoonStore.js';
 import { observer } from 'mobx-react';
+import { images } from '../../../res';
 
 @observer
 export default class MineDetailPage extends Component {
@@ -42,12 +44,18 @@ export default class MineDetailPage extends Component {
         <ScrollView style={styles.container}>
           {
             this.store.data && this.store.data.map((item, index) =>
-              <Image
+              <ImageBackground
                 key={item.bookId}
                 style={{width:SCREEN_WIDTH,height:SCREEN_WIDTH / item.bookImageWidth * item.bookImageHeight}}
-                source={{uri: item.url}}
-                alt=''
-              />
+                source={images.default_loading}
+                resizeMode='cover'
+              >
+                <Image
+                  style={{width:SCREEN_WIDTH,height:SCREEN_WIDTH / item.bookImageWidth * item.bookImageHeight}}
+                  source={{uri: item.url}}
+                  alt=''
+                />
+              </ImageBackground>
             )
           }
         </ScrollView>

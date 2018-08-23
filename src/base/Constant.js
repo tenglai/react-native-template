@@ -75,6 +75,15 @@ export const WANGYINEWS = {
   }
 };
 
+// 豆瓣 图书
+export const DOUBANBOOK = {
+  url: 'https://api.douban.com/v2/book/search',
+  params: {
+    // count: 10,
+    q: 'react'
+  }
+};
+
 // 网易漫画列表
 export const WANGYICARTOON = {
   url: 'https://h5.manhua.163.com/category/',

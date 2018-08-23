@@ -5,7 +5,7 @@ import React, {Component} from 'react';
 import {
   StyleSheet,
   Text,
-  ScrollView
+  ScrollView,
 } from 'react-native';
 // 导入Action的包,处理页面跳转
 import { Actions } from 'react-native-router-flux';
@@ -59,10 +59,10 @@ export default class HomePage extends Component {
       >
         <ScrollView style={styles.container}>
           {
-            this.store.data.tid && this.store.data.tid.map((item, index) =>
+            this.store.data && this.store.data.map((item, index) =>
               <ListRow
                 key={item.id}
-                title={item.title}
+                title={item.price}
                 onPress={() => {
                   // 跳转详情页
                   Actions.homeDetailPage({detail: item})

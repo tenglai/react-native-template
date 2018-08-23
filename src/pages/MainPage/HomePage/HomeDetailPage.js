@@ -6,6 +6,7 @@ import {
   StyleSheet,
   Text,
   View,
+  ScrollView,
 } from 'react-native';
 import { BaseContainer } from '../../../components';
 
@@ -29,7 +30,9 @@ export default class HomeDetailPage extends Component {
         leftPress={() => this.props.navigation.goBack()}
         title={'详情页'}
       >
-        <Text>{JSON.stringify(this.state.detail)}</Text>
+        <ScrollView style={styles.container}>
+          <Text>{JSON.stringify(this.state.detail)}</Text>
+        </ScrollView>
       </BaseContainer>
     )
   }
@@ -38,8 +41,5 @@ export default class HomeDetailPage extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F5FCFF',
-    justifyContent: 'center',
-    alignItems: 'center'
   }
 });

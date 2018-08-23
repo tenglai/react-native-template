@@ -7,10 +7,12 @@ import {
   Image,
   Text,
   View,
+  ImageBackground,
   TouchableOpacity,
 } from 'react-native';
 // 导入Action的包,处理页面跳转
 import { Actions } from 'react-native-router-flux';
+import { images } from '../../res';
 
 export default class CartoonNavCell extends Component {
   // 跳转列表页
@@ -36,11 +38,18 @@ export default class CartoonNavCell extends Component {
             numberOfLines={1}
             style={styles.des}
           >{row.des ? row.des : ' '}</Text>
-          <Image
+          <ImageBackground
             style={styles.image}
-            source={{uri: row.url}}
-            alt=''
-          />
+            source={images.default_nav}
+            resizeMode='contain'
+          >
+            <Image
+              style={[styles.image]}
+              source={{uri: row.url}}
+              resizeMode='contain'
+              alt=''
+            />
+          </ImageBackground>
         </View>
       </TouchableOpacity>
     )

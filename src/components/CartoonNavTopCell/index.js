@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 // 导入Action的包,处理页面跳转
 import { Actions } from 'react-native-router-flux';
+import { images } from '../../res';
 
 export default class CartoonNavTopCell extends Component {
   // 跳转列表页
@@ -29,7 +30,7 @@ export default class CartoonNavTopCell extends Component {
       >
         <ImageBackground
           style={styles.image}
-          source={{uri: row.url}}
+          source={{uri: row.url ? row.url : images.default_top_nav}}
           alt=''
         >
           <Text style={styles.title}>{row.title}</Text>

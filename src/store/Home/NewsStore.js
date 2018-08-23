@@ -6,22 +6,51 @@ import { Toast } from 'teaset';
 // 数据请求封装
 import { HttpUtil } from '../../utils/HttpUtil';
 // 常量
-import { WANGYINEWS } from '../../base/Constant';
+import { WANGYINEWS, DOUBANBOOK } from '../../base/Constant';
 
 export class NewsStore extends BasePageStore { // 继承于 BasePageStore, this 拥有其上所有属性
   // 构造器
   constructor() {
     super([]);
-    this.loadData()
+    this.loadData(10)
   }
 
+  // // 刷新(首次加载)数据
+  // loadData() {
+  //   this.data.length === 0 && this.setLoading(true);
+  //   HttpUtil.get(WANGYINEWS.url, WANGYINEWS.params, {show: this.data.length !== 0})
+  //     .then(res => {
+  //       this.data.length === 0 && this.setLoading(false);
+  //       this.setData(res);
+  //     })
+  //     .catch(e => {
+  //       this.data.length === 0 ? this.setError(true, e.msg) : Toast.fail('请求失败')
+  //     })
+  // }
+
+  // // 加载更多数据
+  // loadMoreData() {
+  //   this.data.length === 0 && this.setLoading(true);
+  //   HttpUtil.get(WANGYINEWS.url, WANGYINEWS.params, {show: this.data.length !== 0})
+  //     .then(res => {
+  //       // this.data.length === 0 && this.setLoading(false);
+  //       res = this.data.concat(res);
+  //       this.setData(res)
+  //       // 将数据返回到页面
+  //       return res;
+  //     })
+  //     .catch(e => {
+  //       this.data.length === 0 ? this.setError(true, e.msg) : Toast.fail('请求失败')
+  //     })
+  // }
+
   // 刷新(首次加载)数据
-  loadData() {
+  loadData(count) {
     this.data.length === 0 && this.setLoading(true);
-    HttpUtil.get(WANGYINEWS.url, WANGYINEWS.params, {show: this.data.length !== 0})
+    HttpUtil.get(DOUBANBOOK.url, {...DOUBANBOOK.params,...{count: count}}, {show: this.data.length !== 0})
       .then(res => {
         this.data.length === 0 && this.setLoading(false);
-        this.setData(res);
+        this.setData(res.books);
       })
       .catch(e => {
         this.data.length === 0 ? this.setError(true, e.msg) : Toast.fail('请求失败')
@@ -31,13 +60,11 @@ export class NewsStore extends BasePageStore { // 继承于 BasePageStore, this 
   // 加载更多数据
   loadMoreData() {
     this.data.length === 0 && this.setLoading(true);
-    HttpUtil.get(WANGYINEWS.url, WANGYINEWS.params, {show: this.data.length !== 0})
+    HttpUtil.get(DOUBANBOOK.url, DOUBANBOOK.params, {show: this.data.length !== 0})
       .then(res => {
         // this.data.length === 0 && this.setLoading(false);
-        res = this.data.concat(res);
+        res = this.data.concat(res.book);
         this.setData(res)
-        // 将数据返回到页面
-        return res;
       })
       .catch(e => {
         this.data.length === 0 ? this.setError(true, e.msg) : Toast.fail('请求失败')
