@@ -23,18 +23,6 @@ import { observer } from 'mobx-react';
 export default class HomePage extends Component {
   // 新闻列表
   store = new NewsStore();
-
-  // 下拉刷新
-  _refresh(callBack){
-    let arr = this.store.loadData();
-    callBack(arr);
-  }
-   
-  // 上拉加载更多
-  _loadMore(page,callBack){
-    let arr = this.store.loadMoreData();
-    callBack(arr);
-  }
    
   // 子组件渲染
   _renderRow(item) {
@@ -51,33 +39,21 @@ export default class HomePage extends Component {
   }
 
   render() {
+    const { loadData, loadMoreData } = this.store;
+
     return (
       <BaseContainer
         store={this.store}
         hideLeft
         title={'首页'}
       >
-        <ScrollView style={styles.container}>
-          {
-            this.store.data && this.store.data.map((item, index) =>
-              <ListRow
-                key={item.id}
-                title={item.title}
-                onPress={() => {
-                  // 跳转详情页
-                  Actions.homeDetailPage({detail: item})
-                }}
-              />
-            )
-          }
-        </ScrollView>
-
-        {/*<PageListView
-          pageLen={10}
+        <PageListView
+          style={styles.container}
+          pageLen={20}
           renderRow={this._renderRow.bind(this)}
-          refresh={this._refresh.bind(this)}
-          loadMore={this._loadMore.bind(this)}
-        />*/}
+          refresh={loadData.bind(this.store)}
+          loadMore={loadMoreData.bind(this.store)}
+        />
       </BaseContainer>
     );
   }
