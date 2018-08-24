@@ -105,6 +105,7 @@ export class HttpUtil {
     if (!url.startsWith('http')) {
       url = this.host + url;
     }
+    // 显示加载框
     loadingParams.show && LoadingUtils.show(loadingParams.hint);
     return Promise.race([new Promise((resolve, reject) => {
       fetch(url, {
@@ -122,10 +123,12 @@ export class HttpUtil {
       }).catch(e => {
         reject({code: -1, msg: `fetch进入catch:${JSON.stringify(e)}`})
       }).finally(() => {
+        // 隐藏加载框
         loadingParams.show && LoadingUtils.hide();
       })
     }), new Promise((resolve, reject) => {
       setTimeout(() => {
+        // 隐藏加载框
         loadingParams.show && LoadingUtils.hide();
         reject({code: -1, msg: `${url}请求超时`})
       }, this.timeOut)

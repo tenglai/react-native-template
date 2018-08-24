@@ -84,6 +84,15 @@ export const DOUBANBOOK = {
   }
 };
 
+// 快看漫画作品列表
+export const KUAIKANCARTOON = {
+  url: 'http://m.kuaikanmanhua.com/mobile/topic_lists/0',
+  params: {
+    // page: 1,
+    limit: 20
+  }
+};
+
 // 网易漫画列表
 export const WANGYICARTOON = {
   url: 'https://h5.manhua.163.com/category/',

@@ -41,7 +41,7 @@ export default class HomePage extends Component {
     return (
       <ListRow
         key={item.id}
-        title={item.price}
+        title={item.title}
         onPress={() => {
           // 跳转详情页
           Actions.homeDetailPage({detail: item})
@@ -62,7 +62,7 @@ export default class HomePage extends Component {
             this.store.data && this.store.data.map((item, index) =>
               <ListRow
                 key={item.id}
-                title={item.price}
+                title={item.title}
                 onPress={() => {
                   // 跳转详情页
                   Actions.homeDetailPage({detail: item})

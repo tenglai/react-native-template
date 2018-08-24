@@ -4,14 +4,16 @@
 import React, {Component} from 'react';
 import {
   StyleSheet,
-  Image,
   Text,
   View,
-  ImageBackground,
+  // Image,
+  // ImageBackground,
   TouchableOpacity,
 } from 'react-native';
 // 导入Action的包,处理页面跳转
 import { Actions } from 'react-native-router-flux';
+// 网络图片处理
+import StateImage from '../StateImage';
 import { images } from '../../res';
 
 export default class CartoonNavCell extends Component {
@@ -38,7 +40,7 @@ export default class CartoonNavCell extends Component {
             numberOfLines={1}
             style={styles.des}
           >{row.des ? row.des : ' '}</Text>
-          <ImageBackground
+          {/*<ImageBackground
             style={styles.image}
             source={images.default_nav}
             resizeMode='contain'
@@ -49,7 +51,8 @@ export default class CartoonNavCell extends Component {
               resizeMode='contain'
               alt=''
             />
-          </ImageBackground>
+          </ImageBackground>*/}
+          <StateImage url={row.url} style={styles.image} />
         </View>
       </TouchableOpacity>
     )
