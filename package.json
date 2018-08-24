@@ -15,6 +15,7 @@
     "prop-types": "^15.6.2",
     "react": "16.4.1",
     "react-native": "0.55.4",
+    "react-native-addcarview": "^1.0.1",
     "react-native-app-upgrade": "^0.0.1",
     "react-native-code-push": "^5.4.1",
     "react-native-device-info": "^0.22.3",

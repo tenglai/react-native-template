@@ -12,7 +12,7 @@ export class NewsStore extends BasePageStore { // 继承于 BasePageStore, this 
   // 构造器
   constructor() {
     super([]);
-    this.loadData(10)
+    this.loadData()
   }
 
   // // 刷新(首次加载)数据
@@ -45,9 +45,9 @@ export class NewsStore extends BasePageStore { // 继承于 BasePageStore, this 
   // }
 
   // 刷新(首次加载)数据
-  loadData(count) {
+  loadData() {
     this.data.length === 0 && this.setLoading(true);
-    HttpUtil.get(DOUBANBOOK.url, {...DOUBANBOOK.params,...{count: count}}, {show: this.data.length !== 0})
+    HttpUtil.get(DOUBANBOOK.url, {...DOUBANBOOK.params,...{count: 10}}, {show: this.data.length !== 0})
       .then(res => {
         this.data.length === 0 && this.setLoading(false);
         this.setData(res.books);
@@ -59,11 +59,11 @@ export class NewsStore extends BasePageStore { // 继承于 BasePageStore, this 
 
   // 加载更多数据
   loadMoreData() {
-    this.data.length === 0 && this.setLoading(true);
-    HttpUtil.get(DOUBANBOOK.url, DOUBANBOOK.params, {show: this.data.length !== 0})
+    // this.data.length === 0 && this.setLoading(true);
+    HttpUtil.get(DOUBANBOOK.url, {...DOUBANBOOK.params,...{count: 10}}, {show: this.data.length !== 0})
       .then(res => {
         // this.data.length === 0 && this.setLoading(false);
-        res = this.data.concat(res.book);
+        res = this.data.concat(res.books);
         this.setData(res)
       })
       .catch(e => {

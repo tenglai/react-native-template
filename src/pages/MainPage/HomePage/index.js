@@ -41,7 +41,7 @@ export default class HomePage extends Component {
     return (
       <ListRow
         key={item.id}
-        title={item.title}
+        title={item.price}
         onPress={() => {
           // 跳转详情页
           Actions.homeDetailPage({detail: item})

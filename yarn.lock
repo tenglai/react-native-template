@@ -4728,6 +4728,10 @@ react-lifecycles-compat@^3, react-lifecycles-compat@^3.0.2, react-lifecycles-com
   version "3.0.4"
   resolved "http://registry.npm.taobao.org/react-lifecycles-compat/download/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
 
+react-native-addcarview@^1.0.1:
+  version "1.0.1"
+  resolved "http://registry.npm.taobao.org/react-native-addcarview/download/react-native-addcarview-1.0.1.tgz#0c447e0574fe65dd15f154b26c3c5aef0e98dcaf"
+
 react-native-app-upgrade@^0.0.1:
   version "0.0.1"
   resolved "http://registry.npm.taobao.org/react-native-app-upgrade/download/react-native-app-upgrade-0.0.1.tgz#37dd32f60c5f2f9b1816e1322e07144ce1f01d13"

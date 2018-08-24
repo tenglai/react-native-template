@@ -101,19 +101,19 @@ export default class MainPage extends Component {
   };
 }
 
-@inject('shopCar')
-@observer
-class ObserverButton extends Component {
-  render() {
-    return this.props.shopCar.dataLength !== 0
-    ?
-    <Button
-      type={'link'}
-      title={this.props.shopCar.isEditMode ? '完成' : '编辑'}
-      onPress={() => {
-        this.props.shopCar.reversalEdit()
-      }}
-    />
-    : null;
-  }
-}
+// @inject('shopCar')
+// @observer
+// class ObserverButton extends Component {
+//   render() {
+//     return this.props.shopCar.dataLength !== 0
+//     ?
+//     <Button
+//       type={'link'}
+//       title={this.props.shopCar.isEditMode ? '完成' : '编辑'}
+//       onPress={() => {
+//         this.props.shopCar.reversalEdit()
+//       }}
+//     />
+//     : null;
+//   }
+// }

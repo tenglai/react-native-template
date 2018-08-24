@@ -11,6 +11,8 @@ import CartoonNavTopCell from './CartoonNavTopCell';
 import CartoonNavCell from './CartoonNavCell';
 // 漫画列表 子组件
 import CartoonCell from './CartoonCell';
+// 简单的网络图片占位图，错误图处理
+import StateImage from './StateImage';
 
 export {
   BaseContainer,
@@ -18,5 +20,6 @@ export {
   PageListView,
   CartoonNavTopCell,
   CartoonNavCell,
-  CartoonCell
+  CartoonCell,
+  StateImage
 }
