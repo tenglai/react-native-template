@@ -16,7 +16,7 @@ import { NewsStore } from '../../../store';
  * 例如：console.log(toJS(this.store.data.tid));
  */
 import { toJS } from 'mobx';
-import { BaseContainer, PageListView } from '../../../components';
+import { BaseContainer, PageListView, RefreshListView } from '../../../components';
 import { observer } from 'mobx-react';
 
 @observer
@@ -25,7 +25,8 @@ export default class HomePage extends Component {
   store = new NewsStore();
    
   // 子组件渲染
-  _renderRow(item) {
+  _renderRow(obj) {
+    let item = obj.item;
     return (
       <ListRow
         key={item.id}
@@ -39,7 +40,7 @@ export default class HomePage extends Component {
   }
 
   render() {
-    const { loadData, loadMoreData } = this.store;
+    const { data, refreshState, loadData, loadMoreData } = this.store;
 
     return (
       <BaseContainer
@@ -47,11 +48,21 @@ export default class HomePage extends Component {
         hideLeft
         title={'首页'}
       >
-        <PageListView
+        {/*<PageListView
           pageLen={20}
           renderRow={this._renderRow.bind(this)}
           refresh={loadData.bind(this.store)}
           loadMore={loadMoreData.bind(this.store)}
+        />*/}
+
+        <RefreshListView
+          data={toJS(data)}
+          keyExtractor={(item,index) => index.toString()}
+          renderItem={this._renderRow.bind(this)}
+
+          refreshState={refreshState}
+          onHeaderRefresh={loadData.bind(this.store)}
+          onFooterRefresh={loadMoreData.bind(this.store)}
         />
       </BaseContainer>
     );

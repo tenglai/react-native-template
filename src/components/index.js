@@ -3,8 +3,10 @@
  */
 import BaseContainer from './BaseContainer';
 import MoveView from './MoveView';
-// 下拉刷新/上拉加载更多 组件
+// 下拉刷新/上拉加载更多 组件(PageListView)
 import PageListView from './PageListView';
+// 下拉刷新/上拉加载更多 组件(RefreshListView)
+import RefreshListView from './RefreshListView';
 // 漫画顶部导航 子组件
 import CartoonNavTopCell from './CartoonNavTopCell';
 // 漫画导航 子组件
@@ -18,6 +20,7 @@ export {
   BaseContainer,
   MoveView,
   PageListView,
+  RefreshListView,
   CartoonNavTopCell,
   CartoonNavCell,
   CartoonCell,

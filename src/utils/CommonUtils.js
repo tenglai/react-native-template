@@ -4,7 +4,7 @@
 import React, { Component } from 'react';
 import { StatusBar, Dimensions } from 'react-native';
 import { AlbumView, Overlay, Button } from 'teaset';
-import Barcode from 'react-native-smart-barcode';
+// import Barcode from 'react-native-smart-barcode';
 
 //设计宽度
 const basePixelWidth = 375;
@@ -13,31 +13,31 @@ export const px2dp = px => {
   return px * width / basePixelWidth;
 };
 
-class CustomBarcode extends Component {
+// class CustomBarcode extends Component {
 
-  componentDidMount() {
-    this.timeout = setTimeout(() => {
-      this._barCode.startScan();
-    }, 100);
-  }
+//   componentDidMount() {
+//     this.timeout = setTimeout(() => {
+//       this._barCode.startScan();
+//     }, 100);
+//   }
 
-  componentWillUnmount() {
-    clearTimeout(this.timeout);
-    this._barCode.stopScan()
-  }
+//   componentWillUnmount() {
+//     clearTimeout(this.timeout);
+//     this._barCode.stopScan()
+//   }
 
-  render() {
-    const {onBarCodeRead} = this.props;
-    return <Barcode
-      style={{flex: 1}}
-      ref={ref => this._barCode = ref}
-      onBarCodeRead={(e) => {
-        console.log('onBarCodeRead', e.nativeEvent);
-        onBarCodeRead && onBarCodeRead(e.nativeEvent.data);
-      }}
-    />
-  }
-}
+//   render() {
+//     const {onBarCodeRead} = this.props;
+//     return <Barcode
+//       style={{flex: 1}}
+//       ref={ref => this._barCode = ref}
+//       onBarCodeRead={(e) => {
+//         console.log('onBarCodeRead', e.nativeEvent);
+//         onBarCodeRead && onBarCodeRead(e.nativeEvent.data);
+//       }}
+//     />
+//   }
+// }
 
 export class CommonUtils {
   /**
@@ -78,34 +78,34 @@ export class CommonUtils {
    * 二维码扫描
    * @param callBack
    */
-  static showQCord(callBack) {
-    let key = null;
-    let overlayView = (
-      <Overlay.PopView
-        containerStyle={{flex: 1}}
-        overlayOpacity={1}
-      >
-        <CustomBarcode onBarCodeRead={e => {
-          Overlay.hide(key);
-          callBack && callBack(e)
-        }}/>
-        <Button
-          title='关闭'
-          tyle={'link'}
-          titleStyle={{color: 'white'}}
-          onPress={() => Overlay.hide(key)}
-          style={{
-            position: 'absolute',
-            top: 40,
-            left: 30,
-            backgroundColor: '#0000',
-            borderColor: 'white'
-          }}/>
-        <StatusBar barStyle={'light-content'}/>
-      </Overlay.PopView>
-    );
-    key = Overlay.show(overlayView);
-  }
+  // static showQCord(callBack) {
+  //   let key = null;
+  //   let overlayView = (
+  //     <Overlay.PopView
+  //       containerStyle={{flex: 1}}
+  //       overlayOpacity={1}
+  //     >
+  //       <CustomBarcode onBarCodeRead={e => {
+  //         Overlay.hide(key);
+  //         callBack && callBack(e)
+  //       }}/>
+  //       <Button
+  //         title='关闭'
+  //         tyle={'link'}
+  //         titleStyle={{color: 'white'}}
+  //         onPress={() => Overlay.hide(key)}
+  //         style={{
+  //           position: 'absolute',
+  //           top: 40,
+  //           left: 30,
+  //           backgroundColor: '#0000',
+  //           borderColor: 'white'
+  //         }}/>
+  //       <StatusBar barStyle={'light-content'}/>
+  //     </Overlay.PopView>
+  //   );
+  //   key = Overlay.show(overlayView);
+  // }
 
   /**
    *

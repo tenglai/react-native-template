@@ -1,5 +1,5 @@
 /**
- * 上拉刷新/下拉加载更多 组件
+ * 上拉刷新/下拉加载更多 组件(PageListView)
  */
 import React, { Component } from 'react';
 import {
@@ -13,7 +13,7 @@ import {
   Easing,
   ActivityIndicator,
 } from 'react-native';
-let PageList=FlatList||ListView;
+let PageList=ListView||FlatList;
 //获取屏幕宽高
 let {width:w, height:h}=Dimensions.get('window');
  

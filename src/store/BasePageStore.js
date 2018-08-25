@@ -13,6 +13,8 @@ export class BasePageStore {
   //默认页面的数据变量
   @observable
   data: any;
+  @observable
+  refreshState: any;
   //此观察变量控制Page页面是否显示加载视图
   @observable
   isLoading: boolean;
@@ -48,6 +50,14 @@ export class BasePageStore {
    */
   @action setData(data) {
     this.data = data
+  }
+
+  /**
+   * 改变refreshState的值
+   * @param refreshState
+   */
+  @action setRefreshState(refreshState) {
+    this.refreshState = refreshState
   }
 
   /**
