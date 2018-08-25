@@ -3,9 +3,12 @@
  */
 export const images = {
   // tabbar
-  ic_home: require('./image/tabbar/ic_home.png'),
-  ic_cart: require('./image/tabbar/ic_cart.png'),
-  ic_mine: require('./image/tabbar/ic_mine.png'),
+  tabbar_home_normal: require('./image/tabbar/tabbar_home_normal.png'),
+  tabbar_home_selected: require('./image/tabbar/tabbar_home_selected.png'),
+  tabbar_shopcar_normal: require('./image/tabbar/tabbar_shopcar_normal.png'),
+  tabbar_shopcar_selected: require('./image/tabbar/tabbar_shopcar_selected.png'),
+  tabbar_mine_normal: require('./image/tabbar/tabbar_mine_normal.png'),
+  tabbar_mine_selected: require('./image/tabbar/tabbar_mine_selected.png'),
   // 常用 图片
   back: require('./image/common/back.png'),
   sand: require('./image/common/sand.png'),

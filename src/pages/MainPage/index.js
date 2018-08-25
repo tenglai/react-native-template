@@ -5,7 +5,9 @@ import React, {Component} from 'react';
 import {
   BackHandler, // 物理返回键
   View,
-  ToastAndroid
+  ToastAndroid,
+  Image,
+  StyleSheet
 } from 'react-native';
 /**
  * @inject 注入需要的store
@@ -13,7 +15,9 @@ import {
  */
 import { inject, observer } from 'mobx-react';
 import { RouteHelper } from 'react-navigation-easy-helper';
-import { TabView, Button } from 'teaset';
+import { Button } from 'teaset';
+// 底部导航栏
+import TabNavigator from 'react-native-tab-navigator';
 // 首页
 import HomePage from './HomePage';
 // 购物车
@@ -25,17 +29,43 @@ import { images } from '../../res';
 // 检测版本升级
 // import { checkNativeUpdate } from '../../utils/UpdateUtils';
 
+const dataSource = [
+  {
+    icon:images.tabbar_home_normal,
+    selectedIcon:images.tabbar_home_selected,
+    tabPage:'Home',
+    tabName:'首页',
+    component:HomePage
+  },
+  {
+    icon:images.tabbar_shopcar_normal,
+    selectedIcon:images.tabbar_shopcar_selected,
+    tabPage:'ShopCar',
+    tabName:'购物车',
+    component:ShopCarPage
+  },
+  {
+    icon:images.tabbar_mine_normal,
+    selectedIcon:images.tabbar_mine_selected,
+    tabPage:'Mine',
+    tabName:'我的',
+    component:MinePage
+  }
+];
+
+var navigation = null;
+
 @inject('userStore', 'shopCar')
 @observer
 export default class MainPage extends Component {
 
   lastClickTime = 0;
-  seleIndex = 0;
 
   constructor(props) {
     super(props);
+    navigation = this.props.navigation;
     this.state = {
-      activeIndex: 0
+      selectedTab:'Home'
     };
   }
 
@@ -58,62 +88,45 @@ export default class MainPage extends Component {
     return false;
   };
 
-  // 底部导航切换事件
-  onTabChange = (index) => {
-    this.setState({activeIndex: index})
-  };
-
   render() {
-    const {shopCar} = this.props;
-    const {isArrayEmpty, data} = shopCar;
+
+    let tabViews = dataSource.map((item,i) => {
+      return (
+          <TabNavigator.Item
+            title={item.tabName}
+            selected={this.state.selectedTab===item.tabPage}
+            titleStyle={{color:'#999999'}}
+            selectedTitleStyle={{color:'#ED5100'}}
+            renderIcon={()=><Image style={styles.tabIcon} source={item.icon}/>}
+            renderSelectedIcon = {() => <Image style={styles.tabIcon} source={item.selectedIcon}/>}
+            tabStyle={{alignSelf:'center'}}
+            onPress = {() => {this.setState({selectedTab:item.tabPage})}}
+            key={i}
+            >
+            <item.component navigation={navigation}/>
+        </TabNavigator.Item>
+      );
+    });
+
     return (
-      <View style={{flex: 1}}>
-        <TabView
-          style={{flex: 1}}
-          type='projector'
-          activeIndex={this.state.activeIndex}
-          onChange={this.onTabChange}
-        >
-          <TabView.Sheet
-            title='首页'
-            icon={images.ic_home}
+      <View style={styles.container}>
+        <TabNavigator
+          hidesTabTouch={true}
           >
-            <HomePage />
-          </TabView.Sheet>
-
-          <TabView.Sheet
-            title='购物车'
-            icon={images.ic_cart}
-            badge={isArrayEmpty ? null : data.length}
-          >
-            <ShopCarPage tabChange={this.onTabChange} />
-          </TabView.Sheet>
-
-          <TabView.Sheet
-            title='我的'
-            icon={images.ic_mine}
-          >
-            <MinePage />
-          </TabView.Sheet>
-        </TabView>
+            {tabViews}
+        </TabNavigator>
       </View>
     );
   }  
 }
 
-// @inject('shopCar')
-// @observer
-// class ObserverButton extends Component {
-//   render() {
-//     return this.props.shopCar.dataLength !== 0
-//     ?
-//     <Button
-//       type={'link'}
-//       title={this.props.shopCar.isEditMode ? '完成' : '编辑'}
-//       onPress={() => {
-//         this.props.shopCar.reversalEdit()
-//       }}
-//     />
-//     : null;
-//   }
-// }
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#F5FCFF',
+  },
+  tabIcon:{
+    width:23,
+    height:23,
+  }
+});

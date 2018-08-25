@@ -23,6 +23,7 @@
     "react-native-shadow-view": "^0.0.1",
     "react-native-splash-screen": "^3.1.1",
     "react-native-svg": "^6.5.2",
+    "react-native-tab-navigator": "^0.3.4",
     "react-native-vector-icons": "^5.0.0",
     "react-navigation": "^2.8.0",
     "react-navigation-easy-helper": "^1.2.0",

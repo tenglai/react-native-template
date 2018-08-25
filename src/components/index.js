@@ -15,6 +15,8 @@ import CartoonNavCell from './CartoonNavCell';
 import CartoonCell from './CartoonCell';
 // 简单的网络图片占位图，错误图处理
 import StateImage from './StateImage';
+// 顶部导航栏
+import TabBar from './TabBar';
 
 export {
   BaseContainer,
@@ -24,5 +26,6 @@ export {
   CartoonNavTopCell,
   CartoonNavCell,
   CartoonCell,
-  StateImage
+  StateImage,
+  TabBar
 }
