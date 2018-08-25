@@ -48,7 +48,7 @@ export default class MineDetailPage extends Component {
                 key={item.bookId}
                 style={{width:SCREEN_WIDTH,height:SCREEN_WIDTH / item.bookImageWidth * item.bookImageHeight}}
                 source={images.default_loading}
-                resizeMode='cover'
+                resizeMode='center'
               >
                 <Image
                   style={{width:SCREEN_WIDTH,height:SCREEN_WIDTH / item.bookImageWidth * item.bookImageHeight}}
@@ -57,6 +57,15 @@ export default class MineDetailPage extends Component {
                 />
               </ImageBackground>
             )
+          }
+
+          {
+            !this.store.data && <Image
+              style={{width:SCREEN_WIDTH,height:SCREEN_HEIGHT-70}}
+              source={images.default_error}
+              resizeMode='center'
+            >
+            </Image>
           }
         </ScrollView>
       </BaseContainer>

@@ -48,6 +48,21 @@ export default class MainPage extends Component {
     BackHandler.removeEventListener('hardwareBackPress', this.onBackHander)
   }
 
+  // 物理返回按钮监听事件
+  onBackHander = () => {
+    if (RouteHelper.routeStack.length === 1 && Date.now() - this.lastClickTime >= 2000) {
+      ToastAndroid.show('再按一次退出', ToastAndroid.LONG);
+      this.lastClickTime = Date.now();
+      return true;
+    }
+    return false;
+  };
+
+  // 底部导航切换事件
+  onTabChange = (index) => {
+    this.setState({activeIndex: index})
+  };
+
   render() {
     const {shopCar} = this.props;
     const {isArrayEmpty, data} = shopCar;
@@ -83,22 +98,7 @@ export default class MainPage extends Component {
         </TabView>
       </View>
     );
-  }
-
-  // 底部导航切换事件
-  onTabChange = (index) => {
-    this.setState({activeIndex: index})
-  };
-
-  // 物理返回按钮监听事件
-  onBackHander = () => {
-    if (RouteHelper.routeStack.length === 1 && Date.now() - this.lastClickTime >= 2000) {
-      ToastAndroid.show('再按一次退出', ToastAndroid.LONG);
-      this.lastClickTime = Date.now();
-      return true;
-    }
-    return false;
-  };
+  }  
 }
 
 // @inject('shopCar')

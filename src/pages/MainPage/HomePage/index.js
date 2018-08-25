@@ -48,7 +48,6 @@ export default class HomePage extends Component {
         title={'首页'}
       >
         <PageListView
-          style={styles.container}
           pageLen={20}
           renderRow={this._renderRow.bind(this)}
           refresh={loadData.bind(this.store)}
