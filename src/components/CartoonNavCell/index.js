@@ -10,8 +10,8 @@ import {
   // ImageBackground,
   TouchableOpacity,
 } from 'react-native';
-// 导入Action的包,处理页面跳转
-import { Actions } from 'react-native-router-flux';
+// 引入路由
+import { RouteHelper } from 'react-navigation-easy-helper';
 // 网络图片处理
 import StateImage from '../StateImage';
 import { images } from '../../res';
@@ -20,7 +20,7 @@ export default class CartoonNavCell extends Component {
   // 跳转列表页
   goListPage = (id,title) => {
     // 路由跳转传参
-    Actions.mineListPage({id: id, title: title});
+    RouteHelper.navigate('MineListPage',{id: id, title: title});
   }
 
   render() {

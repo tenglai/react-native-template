@@ -8,8 +8,8 @@ import {
   View,
   TouchableOpacity,
 } from 'react-native';
-// 导入Action的包,处理页面跳转
-import { Actions } from 'react-native-router-flux';
+// 引入路由
+import { RouteHelper } from 'react-navigation-easy-helper';
 // 错误图处理
 import StateImage from '../StateImage';
 
@@ -17,7 +17,7 @@ export default class HomeCell extends Component {
   // 跳转目录页
   goHomeDetailPage = (obj) => {
     // 跳转详情页
-    Actions.homeDetailPage({detail: obj})
+    RouteHelper.navigate('HomeDetailPage',{detail: obj});
   }
 
   render() {

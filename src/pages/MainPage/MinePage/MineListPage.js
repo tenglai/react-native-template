@@ -25,11 +25,11 @@ export default class MineListPage extends Component {
 
   // 生命周期--组件加载完毕
   componentDidMount(){
-    let id = this.props.id;
-    let title = this.props.title;
+    const { id, title } = this.props.navigation.state.params;
     this.setState({
-      title: title
+      title
     });
+    this.store.id = id;
     // 请求数据
     this.store.loadData(id);
   }

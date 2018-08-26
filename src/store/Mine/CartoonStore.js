@@ -23,8 +23,7 @@ export class CartoonStore extends BasePageStore {
   }
   // 加载(刷新)数据
   @action
-  loadData(id) {
-    this.id = id;
+  loadData() {
     // 初始化
     this.page = 1;
     // 开始下拉刷新

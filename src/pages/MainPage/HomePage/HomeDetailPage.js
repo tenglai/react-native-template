@@ -55,7 +55,7 @@ export default class HomeDetailPage extends Component {
   }
 
   render() {
-    const { detail } = this.props;
+    const { detail } = this.props.navigation.state.params;
 
     return (
       <BaseContainer

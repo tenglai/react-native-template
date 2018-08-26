@@ -11,8 +11,7 @@ import {
 import { BaseContainer } from '../../../components';
 import ListRow from 'teaset/components/ListRow/ListRow';
 import { CartoonStore } from '../../../store/Mine/CartoonStore.js';
-// 导入Action的包,处理页面跳转
-import { Actions } from 'react-native-router-flux';
+import { RouteHelper } from 'react-navigation-easy-helper';
 import { observer } from 'mobx-react';
 
 @observer
@@ -27,8 +26,7 @@ export default class MineCatalogPage extends Component {
   // 生命周期--组件加载完毕
   componentDidMount(){
     // 接收路由传参
-    let id = this.props.id;
-    let title = this.props.title;
+    const { id, title } = this.props.navigation.state.params;
     this.setState({
       title
     });
@@ -51,7 +49,7 @@ export default class MineCatalogPage extends Component {
                 title={item.title}
                 onPress={() => {
                   // 跳转详情页
-                  Actions.mineDetailPage({detail: item});
+                  RouteHelper.navigate('MineDetailPage',{detail: item})
                 }}
               />
             )
