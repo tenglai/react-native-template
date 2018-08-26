@@ -45,7 +45,7 @@ export default class MineDetailPage extends Component {
           {
             this.store.data && this.store.data.map((item, index) =>
               <ImageBackground
-                key={item.bookId}
+                key={index}
                 style={{width:SCREEN_WIDTH,height:SCREEN_WIDTH / item.bookImageWidth * item.bookImageHeight}}
                 source={images.default_loading}
                 resizeMode='center'

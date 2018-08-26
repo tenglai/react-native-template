@@ -32,11 +32,12 @@ export default class CartoonCell extends Component {
           <ImageBackground
             style={styles.image}
             source={images.default_background}
+            resizeMode='contain'
           >
             <Image
               style={styles.image}
               source={{uri: row.cover}}
-              alt=''
+              resizeMode='contain'
             />
           </ImageBackground>
           <Text
@@ -54,13 +55,16 @@ const styles = StyleSheet.create({
   itemContainer: {
     paddingLeft: 5,
     paddingRight: 5,
+    paddingTop: 5,
     marginLeft: 0,
     marginRight: 0,
     width: '33.3333333333%',
-    height: 170,
+    height: 175,
     // 从左到右排列
     alignSelf:'flex-start',
-    backgroundColor: '#fff'
+    backgroundColor: '#fff',
+    borderRightColor: '#e0e0e0',
+    borderRightWidth: 1
   },
   image: {
     flex: 1,

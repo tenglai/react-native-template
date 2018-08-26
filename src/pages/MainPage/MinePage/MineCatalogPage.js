@@ -47,7 +47,7 @@ export default class MineCatalogPage extends Component {
           {
             this.store.data && this.store.data.map((item, index) =>
               <ListRow
-                key={item.bookId}
+                key={index}
                 title={item.title}
                 onPress={() => {
                   // 跳转详情页

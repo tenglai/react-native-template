@@ -13,8 +13,14 @@ import LaunchPage from './pages/LaunchPage';
 import LoginPage from './pages/LoginPage';
 // 主页面
 import MainPage from './pages/MainPage';
+// 首页
+import HomePage from './pages/MainPage/HomePage';
 // 首页--详情页
 import HomeDetailPage from './pages/MainPage/HomePage/HomeDetailPage';
+// 购物车
+import ShopCarPage from './pages/MainPage/ShopCarPage';
+// 我的
+import MinePage from './pages/MainPage/MinePage';
 // 我的--列表页
 import MineListPage from './pages/MainPage/MinePage/MineListPage';
 // 我的--目录页
@@ -57,7 +63,26 @@ export const AppNavigator = () => {
           component={MainPage}
           hideNavBar={true}
           initial={true}
-        />
+        >
+          {/* 首页 */}
+          <Scene
+            key="homePage"
+            component={HomePage}
+            hideNavBar={true}
+          />
+          {/* 购物车 */}
+          <Scene
+            key="shopCarPage"
+            component={ShopCarPage}
+            hideNavBar={true}
+          />
+          {/* 我的 */}
+          <Scene
+            key="minePage"
+            component={MinePage}
+            hideNavBar={true}
+          />
+        </Scene>
         {/* 首页--详情页 */}
         <Scene
           key="homeDetailPage"
