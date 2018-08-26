@@ -12,19 +12,6 @@ import {
 import { BaseContainer } from '../../../components';
 
 export default class HomeDetailPage extends Component {
-  state = {
-    detail: ''
-  }
-
-  // 生命周期--组件加载完毕
-  componentDidMount(){
-    // 获取路由传参
-    // let detail = this.props.detail;
-    // this.setState({
-    //   detail
-    // });
-  }
-
   render() {
     const { detail } = this.props;
 
