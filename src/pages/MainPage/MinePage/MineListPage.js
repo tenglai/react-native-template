@@ -30,8 +30,9 @@ export default class MineListPage extends Component {
     this.setState({
       title: title
     });
+    this.store.id = id;
     // 请求数据
-    this.store.loadData(id);
+    this.store.loadData();
   }
 
   // 子组件渲染

@@ -24,6 +24,8 @@ export default class HomeDetailPage extends Component {
   toggleMenu(side){
     let { rootTransform } = this.state;
     this.drawer = Drawer.open(this.renderDrawerMenu(), side, rootTransform);
+
+    console.log(this.props);
   }
 
   // 侧边菜单(抽屉)
