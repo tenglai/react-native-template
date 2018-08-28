@@ -11,6 +11,8 @@ export { BaseAppStore } from './BaseAppStore';
 export { NewsStore } from './Home/NewsStore';
 // 购物车数据
 export { ShopCarStore } from './ShopCar/ShopCarStore';
+// 麦萌漫画数据
+export { MaiMengComicStore } from './ShopCar/MaiMengComicStore';
 // 主题
 export { Theme } from './Theme';
 // // 用户信息

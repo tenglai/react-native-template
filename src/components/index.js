@@ -9,6 +9,8 @@ import PageListView from './PageListView';
 import RefreshListView from './RefreshListView';
 // 首页 子组件
 import HomeCell from './HomeCell';
+// 购物车 子组件
+import ShopCarCell from './ShopCarCell';
 // 漫画顶部导航 子组件
 import CartoonNavTopCell from './CartoonNavTopCell';
 // 漫画导航 子组件
@@ -26,6 +28,7 @@ export {
   PageListView,
   RefreshListView,
   HomeCell,
+  ShopCarCell,
   CartoonNavTopCell,
   CartoonNavCell,
   CartoonCell,
