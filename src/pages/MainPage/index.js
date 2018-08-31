@@ -16,44 +16,17 @@ import {
 import { inject, observer } from 'mobx-react';
 import { RouteHelper } from 'react-navigation-easy-helper';
 import { Button } from 'teaset';
-// 底部导航栏
-import TabNavigator from 'react-native-tab-navigator';
+import ScrollableTabView from 'react-native-scrollable-tab-view';
+// 自定义选项卡
+import { CustomTabBar } from '../../components';
 // 首页
 import HomePage from './HomePage';
 // 购物车
 import ShopCarPage from './ShopCarPage';
 // 我的
 import MinePage from './MinePage';
-// 图片资源
-import { images } from '../../res';
 // 检测版本升级
 // import { checkNativeUpdate } from '../../utils/UpdateUtils';
-
-const dataSource = [
-  {
-    icon:images.tabbar_home_normal,
-    selectedIcon:images.tabbar_home_selected,
-    tabPage:'Home',
-    tabName:'首页',
-    component:HomePage
-  },
-  {
-    icon:images.tabbar_shopcar_normal,
-    selectedIcon:images.tabbar_shopcar_selected,
-    tabPage:'ShopCar',
-    tabName:'购物车',
-    component:ShopCarPage
-  },
-  {
-    icon:images.tabbar_mine_normal,
-    selectedIcon:images.tabbar_mine_selected,
-    tabPage:'Mine',
-    tabName:'我的',
-    component:MinePage
-  }
-];
-
-var navigation = null;
 
 @inject('userStore', 'shopCar')
 @observer
@@ -63,10 +36,29 @@ export default class MainPage extends Component {
 
   constructor(props) {
     super(props);
-    navigation = this.props.navigation;
-    this.state = {
-      selectedTab:'Home'
-    };
+  }
+
+  render() {
+    let tabNames = ['首页', '购物车', '我的'];
+
+    return (
+      <ScrollableTabView
+        initialPage={0} //初始tab索引
+        renderTabBar={() =>
+          <CustomTabBar
+            tabNames={tabNames} //tab名称
+            placeMiddle={false} //中间是否占位，即中间是否需要用特殊按钮样式等
+          />
+        }
+        tabBarPosition='bottom'
+      >
+        <HomePage key='homePage' tabLabel='home' />
+
+        <ShopCarPage key='ShopCarPage' tabLabel='shopCar' />
+
+        <MinePage key='minePage' tabLabel='mine' />
+      </ScrollableTabView>
+    );
   }
 
   componentDidMount() {
@@ -86,38 +78,7 @@ export default class MainPage extends Component {
       return true;
     }
     return false;
-  };
-
-  render() {
-
-    let tabViews = dataSource.map((item,i) => {
-      return (
-          <TabNavigator.Item
-            title={item.tabName}
-            selected={this.state.selectedTab===item.tabPage}
-            titleStyle={{color:'#999999'}}
-            selectedTitleStyle={{color:'#ED5100'}}
-            renderIcon={()=><Image style={styles.tabIcon} source={item.icon}/>}
-            renderSelectedIcon = {() => <Image style={styles.tabIcon} source={item.selectedIcon}/>}
-            tabStyle={{alignSelf:'center'}}
-            onPress = {() => {this.setState({selectedTab:item.tabPage})}}
-            key={i}
-            >
-            <item.component navigation={navigation}/>
-        </TabNavigator.Item>
-      );
-    });
-
-    return (
-      <View style={styles.container}>
-        <TabNavigator
-          hidesTabTouch={true}
-          >
-            {tabViews}
-        </TabNavigator>
-      </View>
-    );
-  }  
+  }; 
 }
 
 const styles = StyleSheet.create({

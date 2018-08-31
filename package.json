@@ -21,6 +21,7 @@
     "react-native-device-info": "^0.22.3",
     "react-native-image-picker": "^0.26.10",
     "react-native-router-flux": "^4.0.1",
+    "react-native-scrollable-tab-view": "^0.8.0",
     "react-native-shadow-view": "^0.0.1",
     "react-native-splash-screen": "^3.1.1",
     "react-native-svg": "^6.5.2",
