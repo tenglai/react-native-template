@@ -21,6 +21,10 @@ import CartoonCell from './CartoonCell';
 import StateImage from './StateImage';
 // 底部选项卡
 import CustomTabBar from './CustomTabBar';
+// 底部导航栏
+import TabBar from './TabBar';
+// 抽屉视图
+import Drawer from './Drawer';
 
 export {
   BaseContainer,
@@ -33,5 +37,7 @@ export {
   CartoonNavCell,
   CartoonCell,
   StateImage,
-  CustomTabBar
+  CustomTabBar,
+  TabBar,
+  Drawer
 }

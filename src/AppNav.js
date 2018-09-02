@@ -4,7 +4,8 @@
 import React, { Component } from 'react';
 // Router 路由
 // Scene 场景(视图)
-import { Router, Scene } from 'react-native-router-flux';
+import { Router, Scene, Tabs } from 'react-native-router-flux';
+import { TabBar } from './components';
 // 引导页
 import GuidePage from './pages/GuidePage';
 // 启动页
@@ -13,6 +14,12 @@ import LaunchPage from './pages/LaunchPage';
 import LoginPage from './pages/LoginPage';
 // 主页面
 import MainPage from './pages/MainPage';
+// // tabbar--首页
+// import HomePage from './pages/MainPage/HomePage';
+// // tabbar--购物车
+// import ShopCarPage from './pages/MainPage/ShopCarPage';
+// // tabbar--我的
+// import MinePage from './pages/MainPage/MinePage';
 // 首页--详情页
 import HomeDetailPage from './pages/MainPage/HomePage/HomeDetailPage';
 // 购物车--详情页
@@ -53,14 +60,43 @@ export const AppNavigator = () => {
           component={LoginPage}
           hideNavBar={true}
         />
-        {/* 主页面 */}
+        {/* 主页面/tabbar */}
         <Scene
-          key="tabbar"
-          title="主页面"
+          key="mainPage"
           component={MainPage}
           hideNavBar={true} // 此处以及其他页都隐藏了导航，我打算自定义组件作为头部导航栏
           initial={true}
         />
+        {/*<Scene
+          key="tabbar"
+          name="tabbar"
+          duration={0}
+          tabs={true}
+          style={{flex:1,backgroundColor:"#f6f6f6"}}
+          initial={true}
+        >
+          <Scene
+            key="homePage"
+            duration={0}
+            component={HomePage}
+            hideNavBar={true}
+            icon={TabBar}
+          />
+          <Scene
+            key="shopCarPage"
+            duration={0}
+            component={ShopCarPage}
+            hideNavBar={true}
+            icon={TabBar}
+          />
+          <Scene
+            key="minePage"
+            duration={0}
+            component={MinePage}
+            hideNavBar={true} 
+            icon={TabBar}
+          />
+        </Scene>*/}
         {/* 首页--详情页 */}
         <Scene
           key="homeDetailPage"
