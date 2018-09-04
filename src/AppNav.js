@@ -13,6 +13,8 @@ import LoginPage from './pages/LoginPage';
 import MainPage from './pages/MainPage';
 // 首页--详情页
 import HomeDetailPage from './pages/MainPage/HomePage/HomeDetailPage';
+// 购物车--详情页
+import ShopCarDetailPage from './pages/MainPage/ShopCarPage/ShopCarDetailPage';
 // 我的--列表页
 import MineListPage from './pages/MainPage/MinePage/MineListPage';
 // 我的--目录页
@@ -29,6 +31,7 @@ export const AppNavigator = createStackNavigator (
     LoginPage: {screen: LoginPage}, // 登录页
     MainPage: {screen: MainPage}, // 主页面
     HomeDetailPage: {screen: HomeDetailPage}, // 首页--详情页
+    ShopCarDetailPage: {screen: ShopCarDetailPage}, // 购物车--详情页
     MineListPage: {screen: MineListPage}, // 我的--列表页
     MineCatalogPage: {screen: MineCatalogPage}, // 我的--目录页
     MineDetailPage: {screen: MineDetailPage}, // 我的--详情页
@@ -38,7 +41,7 @@ export const AppNavigator = createStackNavigator (
       }
     },
   }), {
-    initialRouteName: 'MainPage', // 默认启动页
+    initialRouteName: 'LaunchPage', // 默认启动页
     navigationOptions: {
       header: null
     }

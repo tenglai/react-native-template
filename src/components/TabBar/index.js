@@ -1,5 +1,5 @@
 /**
- * 顶部导航栏
+ * 底部导航栏
  */
 import React, { PureComponent } from 'react';
 import {

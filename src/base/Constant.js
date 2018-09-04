@@ -112,3 +112,52 @@ export const WANGYICARTOONDETAIL = {
   url: 'https://h5.manhua.163.com/reader/section/',
   params: {}
 };
+
+// 麦萌漫画--类型
+export const MAIMENG_CATEGORIES = {
+  url: 'http://api-app.maimengjun.com/comic/categories',
+  params: {}
+};
+
+// 麦萌漫画--分类
+export const MAIMENG_BOOK_LIST = {
+  url: 'http://api-app.maimengjun.com/category/bookList',
+  params: {
+    id: 8,
+    page: 1,
+    size: 10
+  }
+};
+
+// 麦萌漫画--列表
+export const MAIMENG_CHAPTER_LIST = {
+  /**
+   * http://api-app.maimengjun.com/comic/detail?id=799
+   * http://api-app.maimengjun.com/comic/chapterList?id=799&isSize=1
+   */
+  url: 'http://api-app.maimengjun.com/comic/chapterList',
+  params: {
+    id: 799,
+    isSize: 1
+  }
+};
+
+// 麦萌漫画--详情
+export const MAIMENG_COMIC_CHAPTER = {
+  url: 'http://api-app.maimengjun.com/comicChapter/read',
+  params: {
+    chapterNo: 1,
+    bookId: 799
+  }
+};
+
+// 麦萌漫画--搜索
+export const MAIMENG_SEARCH = {
+  url: 'http://api-app.maimengjun.com/search',
+  params: {
+    page: 1,
+    size: 30,
+    keyword: '',
+    model: 1
+  }
+};

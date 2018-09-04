@@ -10,13 +10,15 @@ import {
   ImageBackground,
   ScrollView,
 } from 'react-native';
-import { BaseContainer,  } from '../../../components';
+import { BaseContainer, CameraButton } from '../../../components';
 import Icon from 'react-native-vector-icons/Ionicons'; //引入图标
 import { Theme, Drawer, ListRow, Button } from 'teaset';
 import { images } from '../../../res';
 
 export default class HomeDetailPage extends Component {
   state = {
+    file: '',
+    fileName: '',
     rootTransform: 'none'
   };
 
@@ -54,6 +56,14 @@ export default class HomeDetailPage extends Component {
     );
   }
 
+  // 上传图片
+  onFileUpload(file, fileName){
+    this.setState({
+      file,
+      fileName
+    });
+  }
+
   render() {
     const { detail } = this.props.navigation.state.params;
 
@@ -75,6 +85,13 @@ export default class HomeDetailPage extends Component {
           <Text>作者:{detail.user.nickname}</Text>
           <Text>更新:{detail.update_day}</Text>
           <Text>喜欢:{detail.likes_count}</Text>
+          <CameraButton
+            style={styles.cameraBtn}
+            photos={[]}
+            onFileUpload={this.onFileUpload.bind(this)}
+          />
+          <Text>{JSON.stringify(this.state.file)}</Text>
+          <Text>{this.state.fileName}</Text>
         </ScrollView>
       </BaseContainer>
     )
