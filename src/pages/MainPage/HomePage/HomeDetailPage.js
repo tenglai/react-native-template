@@ -73,10 +73,12 @@ export default class HomeDetailPage extends Component {
           >
             <Text style={styles.title}>{detail.title}</Text>
           </ImageBackground>
-          <Text>描述:{detail.description}</Text>
-          <Text>作者:{detail.user.nickname}</Text>
-          <Text>更新:{detail.update_day}</Text>
-          <Text>喜欢:{detail.likes_count}</Text>
+          <View style={styles.desc}>
+            <Text>作者:{detail.user.nickname}</Text>
+            <Text>更新:{detail.update_day}</Text>
+            <Text>喜欢:{detail.likes_count}</Text>
+            <Text>描述:{detail.description}</Text>
+          </View>
         </ScrollView>
       </BaseContainer>
     )
@@ -97,5 +99,10 @@ const styles = StyleSheet.create({
     left: 10,
     bottom: 10,
     color: '#fff'
+  },
+  desc: {
+    marginLeft: 10,
+    marginTop: 5,
+    marginRight: 10
   }
 });

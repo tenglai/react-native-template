@@ -43,9 +43,9 @@ export default class HomeCell extends Component {
           >{row.name}</Text>
           <Text
             // 该属性的值是一个数字，用于规定最多显示多少行，如果超过该数值，则以省略号（...）表示。
-            numberOfLines={1}
-            style={styles.update}
-          >{row.updateValueLabel}</Text>
+            numberOfLines={3}
+            style={styles.intro}
+          >描述:{row.introduction}</Text>
         </View>
       </TouchableOpacity>
     )
@@ -55,28 +55,34 @@ export default class HomeCell extends Component {
 const styles = StyleSheet.create({
   itemContainer: {
     width: SCREEN_WIDTH,
-    height: 100,
+    // height: 100,
     // 从左到右排列
     flexDirection: 'row',
-    backgroundColor: '#fff'
+    backgroundColor: '#fff',
+    // 边框
+    borderStyle: 'solid',
+    borderBottomWidth: 1,
+    borderBottomColor: '#eee',
   },
   image: {
-    width: 150,
-    height: 80,
-    marginTop: 10,
+    width: 70,
+    height: 100,
+    marginTop: 5,
+    marginBottom: 5,
     marginLeft: 10,
     marginRight: 10,
     backgroundColor: '#000'
   },
   imageDesc: {
-    height: 100
+    // height: 110
   },
   title: {
     textAlign: 'left',
     lineHeight: 50,
     fontWeight: '900'
   },
-  update: {
+  intro: {
     textAlign: 'left',
+    width: SCREEN_WIDTH - 90,
   }
 });
